@@ -22,7 +22,7 @@ uploaded_file = st.file_uploader('Load you file here',type=['wav'])
 
 st.audio(uploaded_file, format="audio/wav", start_time=0)
 
-if uploaded_file is not None:
-    y, sr = librosa.load(uploaded_file)
+# if uploaded_file is not None:
+#     y, sr = librosa.load(uploaded_file)
 
-    st.pyplot(librosa.display.waveshow(y))
+#     st.pyplot(librosa.display.waveshow(y))
