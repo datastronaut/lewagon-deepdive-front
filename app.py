@@ -17,24 +17,12 @@ import matplotlib.pyplot as plt
 # response.raw.decode_content = True
 # image = Image.open(response.raw)
 
+# displaying a cover picture
 image = Image.open('images/cover.png')
-st.image(image, caption='cover', use_column_width=False, width = 500 )
+st.image(image, use_column_width=False, width = 500 )
 
 # upload the sound file
 uploaded_sound = st.file_uploader('Load you file here',type=['wav','mp3'])
-
-
-# file_ = open("sample_whale/librosa_test_AC2A_6301901V.png", "rb")
-# contents = file_.read()
-# image_url = base64.b64encode(contents).decode("utf-8")
-# file_.close()
-
-
-# file_ = open("sample_whale/AC2A_6301901V.wav", "rb")
-# contents = file_.read()
-# sound_url = base64.b64encode(contents).decode("utf-8")
-# file_.close()
-
 
 # javascript and CSS found here : https://github.com/mike-brady/Spectrogram-Player
 my_javascript ="""
@@ -233,7 +221,7 @@ my_css="""
   height: 100%;
   position: absolute;
   left: 50%;
-  background-color: #555;
+  background-color: #f00020;
 }
 
 """
@@ -249,12 +237,12 @@ if uploaded_sound is not None:
     mel_spec = librosa.feature.melspectrogram(y=y, sr=sr)
     mel_spec_db = librosa.power_to_db(mel_spec, ref=np.max)
     plt.figure(figsize=(50,5))
-    img = librosa.display.specshow(mel_spec_db)
+    img = librosa.display.specshow(mel_spec_db, cmap = 'plasma')
 
-    plt.savefig('images/test_image.png',bbox_inches='tight',pad_inches=0)
+    plt.savefig('images/spectrogram.png',bbox_inches='tight',pad_inches=0)
 
     # converting img to be correctly understood in html component
-    file_ = open('images/test_image.png', "rb")
+    file_ = open('images/spectrogram.png', "rb")
     contents = file_.read()
     image_url = base64.b64encode(contents).decode("utf-8")
     file_.close()
@@ -276,7 +264,7 @@ if uploaded_sound is not None:
             <source src="data:audio/wav;base64,{sound_url}" type="audio/wav">
         </audio>
     </div>
-    <b>Spectrogram</b><br />
+    Spectrogram<br />
     &copy; <a href="https://github.com/mike-brady/Spectrogram-Player">Mike Brady</a></span>
     """,
     height=600,
