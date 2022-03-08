@@ -1,15 +1,19 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from PIL import Image
 import base64
 import librosa
 import librosa.display
 import numpy as np
 import matplotlib.pyplot as plt
+import io
 
-'''
-# Le Wagon - Deep Dive project
-'''
+
+st.set_page_config(
+     page_title="Le Wagon Deep Dive",
+     page_icon="\U0001F433",
+     layout="wide",
+     initial_sidebar_state="expanded"
+ )
 
 # # ouvrir une image à partir d'une url:
 # url = 'https://media.fisheries.noaa.gov/styles/original/s3/dam-migration/640x427-minke-whale.png'
@@ -17,12 +21,21 @@ import matplotlib.pyplot as plt
 # response.raw.decode_content = True
 # image = Image.open(response.raw)
 
-# displaying a cover picture
-image = Image.open('images/cover.png')
-st.image(image, use_column_width=False, width = 500 )
+# displaying sidebar
+st.sidebar.image('images/LeWagonDeepDiveLogo.png', use_column_width='auto')
+st.sidebar.markdown("""
+                    # Le Wagon - Batch #802
+                    [Victoria Metzger](https://www.linkedin.com/in/victoria-metzger-703416a7/)<br>
+                    [Timothée Filhol](https://www.linkedin.com/in/timothee-filhol/)<br>
+                    [Christian Lajouanie](https://www.linkedin.com/in/christianlajouanie/)
+                    """,unsafe_allow_html=True)
+
+'''
+# Le Wagon - Deep Dive
+'''
 
 # upload the sound file
-uploaded_sound = st.file_uploader('Load you file here',type=['wav','mp3'])
+uploaded_sound = st.file_uploader('Load you file here',type=['wav'])
 
 # javascript and CSS found here : https://github.com/mike-brady/Spectrogram-Player
 my_javascript ="""
@@ -217,11 +230,11 @@ my_css="""
 }
 
 .sp-timeBar {
-  width: 1px;
+  width: 2px;
   height: 100%;
   position: absolute;
   left: 50%;
-  background-color: #f00020;
+  background-color: red;
 }
 
 """
@@ -236,21 +249,16 @@ if uploaded_sound is not None:
     y, sr = librosa.load(uploaded_sound,sr=44_100)
     mel_spec = librosa.feature.melspectrogram(y=y, sr=sr)
     mel_spec_db = librosa.power_to_db(mel_spec, ref=np.max)
-    plt.figure(figsize=(50,5))
+    plt.figure(figsize=(30,5))
     img = librosa.display.specshow(mel_spec_db, cmap = 'plasma')
 
-    plt.savefig('images/spectrogram.png',bbox_inches='tight',pad_inches=0)
+    # save fig in a buffer
+    buffer = io.BytesIO()
+    plt.savefig(buffer,bbox_inches='tight',pad_inches=0)
+    plt.close()
 
     # converting img to be correctly understood in html component
-    file_ = open('images/spectrogram.png', "rb")
-    contents = file_.read()
-    image_url = base64.b64encode(contents).decode("utf-8")
-    file_.close()
-
-    data_width=600
-    data_height=200
-    data_freq_min=0
-    data_freq_max=8
+    image_url = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
 
     components.html(
@@ -258,7 +266,7 @@ if uploaded_sound is not None:
     <style>{my_css}</style>
     <script type="text/javascript">{my_javascript}</script>
 
-    <div class="spectrogram-player" data-width=600 data-height=200 data-freq-min=0 data-freq-max=8>
+    <div class="spectrogram-player" data-width=600 data-height=300 data-freq-min=0 data-freq-max=8>
         <img src="data:image/png;base64,{image_url}">
         <audio controls controlsList="nodownload">
             <source src="data:audio/wav;base64,{sound_url}" type="audio/wav">
