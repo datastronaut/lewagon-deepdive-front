@@ -1,4 +1,5 @@
-base64
-librosa
-numpy
-matplotlib
+librosa==0.9.1
+matplotlib==3.5.1
+numpy==1.18.5
+Pillow==9.0.1
+streamlit==1.6.0
