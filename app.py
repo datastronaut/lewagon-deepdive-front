@@ -266,7 +266,7 @@ if uploaded_sound is not None:
             <style>{my_css}</style>
             <script type="text/javascript">{my_javascript}</script>
 
-            <div class="spectrogram-player" data-width=1300 data-height=300 data-freq-min=0 data-freq-max=8>
+            <div class="spectrogram-player" data-width=600 data-height=300 data-freq-min=0 data-freq-max=8>
                 <img src="data:image/png;base64,{image_url}">
                 <audio controls controlsList="nodownload">
                     <source src="data:audio/wav;base64,{sound_url}" type="audio/wav">
