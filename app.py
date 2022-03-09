@@ -6,13 +6,14 @@ import librosa.display
 import numpy as np
 import matplotlib.pyplot as plt
 import io
+import time
 
 
 st.set_page_config(
-     page_title="Le Wagon Deep Dive",
-     page_icon="\U0001F433",
-     layout="wide",
-     initial_sidebar_state="expanded"
+    page_title="Le Wagon Deep Dive",
+    page_icon="\U0001F433", # whale emoji
+    layout="wide",
+    initial_sidebar_state="auto"
  )
 
 # # ouvrir une image à partir d'une url:
@@ -239,7 +240,7 @@ my_css="""
 
 """
 
-
+# when an audio file is loaded, display the spectrogram player
 if uploaded_sound is not None:
 
     # converting uploaded_sound to be correctly understood in html component
@@ -260,7 +261,7 @@ if uploaded_sound is not None:
     # converting img to be correctly understood in html component
     image_url = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
-
+    #html to display the spectrogram player
     components.html(
     f"""
     <style>{my_css}</style>
@@ -275,6 +276,14 @@ if uploaded_sound is not None:
     Spectrogram<br />
     &copy; <a href="https://github.com/mike-brady/Spectrogram-Player">Mike Brady</a></span>
     """,
-    height=600,
-    scrolling=True
-)
+    height=400,
+    )
+
+    if st.button('Predict'):
+        placeholder1 = st.empty()
+        with st.spinner('Prediction in progress'):
+            placeholder2 = st.empty()
+            placeholder2.image('images/species.gif')
+            time.sleep(3)
+        placeholder1.info('A very cool animal species has been predicted!')
+        placeholder2.image('images/giphy.gif')
