@@ -20,19 +20,28 @@ st.set_page_config(
     initial_sidebar_state="auto"
  )
 
+"""
+# Deep Dive
+## Predict the species of a marine mammal with its song
+"""
+
 # displaying sidebar
-st.sidebar.image('images/LeWagonDeepDiveLogo.png', use_column_width='auto')
 st.sidebar.markdown("""
                     # Le Wagon - Batch #802
                     [Victoria Metzger](https://www.linkedin.com/in/victoria-metzger-703416a7/)<br>
                     [Timothée Filhol](https://www.linkedin.com/in/timothee-filhol/)<br>
                     [Christian Lajouanie](https://www.linkedin.com/in/christianlajouanie/)
                     """,unsafe_allow_html=True)
+st.sidebar.image('images/LeWagonDeepDiveLogo.png', use_column_width='auto')
+st.sidebar.markdown("""
+                    This project has been possible thanks to the amazing work of William Watkins and the thousands of recordings available on the [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)
+                    \n\n\n\n
+                    [www.lewagon.com](https://www.lewagon.com/)
+                    """)
 
-st.title('Le Wagon - Deep Dive')
 
 # upload the sound file
-uploaded_sound = st.file_uploader('Load you file here',type=['wav'])
+uploaded_sound = st.file_uploader('',type=['wav'])
 
 # javascript and CSS found here : https://github.com/mike-brady/Spectrogram-Player
 my_css="""
