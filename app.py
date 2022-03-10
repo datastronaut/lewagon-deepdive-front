@@ -312,20 +312,20 @@ if uploaded_sound is not None:
 
             prediction=predict_class(audio_data, model)
             class_proba = [item for item in prediction.items()]
-            # time.sleep(3)
+            time.sleep(1)
 
         with col1:
-            placeholder11.image('images/gold.png')
+            placeholder11.image('images/gold.png', width=100)
             placeholder12.info(f'**{class_proba[2][1]}%** - {df_species.iloc[class_proba[2][0]].common_name}')
             placeholder13.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
 
         with col2:
-            placeholder21.image('images/silver.png')
+            placeholder21.image('images/silver.png', width=100)
             placeholder22.info(f'**{class_proba[1][1]}%** - {df_species.iloc[class_proba[1][0]].common_name}')
             placeholder23.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
 
 
         with col3:
-            placeholder31.image('images/bronze.png')
+            placeholder31.image('images/bronze.png', width=100)
             placeholder32.info(f'**{class_proba[0][1]}%** - {df_species.iloc[class_proba[0][0]].common_name}')
             placeholder33.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
