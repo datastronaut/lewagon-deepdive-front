@@ -22,7 +22,7 @@ st.set_page_config(
 
 """
 # Deep Dive
-## Predict the species of a marine mammal with its song
+## Predict marine mammal species from their sound
 """
 
 # displaying sidebar
@@ -267,9 +267,8 @@ if uploaded_sound is not None:
     # converting buffer to be correctly understood in the html component
     image_url = base64.b64encode(buffer.getvalue()).decode("utf-8")
 
-
+    # display spectrogram player in an expander
     with st.expander('Spectrogram Player', expanded=True):
-        #html to display the spectrogram player
         components.html(
             f"""
             <style>{my_css}</style>
@@ -297,29 +296,36 @@ if uploaded_sound is not None:
             col1, col2, col3 = st.columns(3)
 
             with col1:
-                placeholder1=st.info('...')
-                placeholder2=st.image('images/species.gif')
+                placeholder11=st.empty()
+                placeholder12=st.empty()
+                placeholder13=st.image('images/species.gif')
 
             with col2:
-                placeholder3=st.info('...')
-                placeholder4=st.image('images/species.gif')
+                placeholder21=st.empty()
+                placeholder22=st.empty()
+                placeholder23=st.image('images/species.gif')
 
             with col3:
-                placeholder5=st.info('...')
-                placeholder6=st.image('images/species.gif')
+                placeholder31=st.empty()
+                placeholder32=st.empty()
+                placeholder33=st.image('images/species.gif')
 
             prediction=predict_class(audio_data, model)
             class_proba = [item for item in prediction.items()]
-            time.sleep(5)
+            # time.sleep(3)
 
-            with col1:
-                placeholder2.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
-                placeholder1.info(f'{df_species.iloc[class_proba[2][0]].common_name} with a confidence of {class_proba[2][1]} %.')
+        with col1:
+            placeholder11.image('images/gold.png')
+            placeholder12.info(f'**{class_proba[2][1]}%** - {df_species.iloc[class_proba[2][0]].common_name}')
+            placeholder13.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
 
-            with col2:
-                placeholder4.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
-                placeholder3.info(f'{df_species.iloc[class_proba[1][0]].common_name} with a confidence of {class_proba[1][1]} %.')
+        with col2:
+            placeholder21.image('images/silver.png')
+            placeholder22.info(f'**{class_proba[1][1]}%** - {df_species.iloc[class_proba[1][0]].common_name}')
+            placeholder23.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
 
-            with col3:
-                placeholder6.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
-                placeholder5.info(f'{df_species.iloc[class_proba[0][0]].common_name} with a confidence of {class_proba[0][1]} %.')
+
+        with col3:
+            placeholder31.image('images/bronze.png')
+            placeholder32.info(f'**{class_proba[0][1]}%** - {df_species.iloc[class_proba[0][0]].common_name}')
+            placeholder33.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
