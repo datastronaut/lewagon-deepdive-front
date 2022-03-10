@@ -22,7 +22,7 @@ st.set_page_config(
 
 """
 # Deep Dive
-## Predict marine mammal species from their sound
+## Predict marine mammal species from their song
 """
 
 # displaying sidebar
@@ -32,7 +32,7 @@ st.sidebar.markdown("""
                     [Timothée Filhol](https://www.linkedin.com/in/timothee-filhol/)<br>
                     [Christian Lajouanie](https://www.linkedin.com/in/christianlajouanie/)
                     """,unsafe_allow_html=True)
-st.sidebar.image('images/LeWagonDeepDiveLogo.png', use_column_width='auto')
+st.sidebar.image('images/LeWagonDeepDiveLogo.png', width=200)
 st.sidebar.markdown("""
                     This project has been possible thanks to the amazing work of William Watkins and the thousands of recordings available on the [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)
                     \n\n\n\n
@@ -299,6 +299,8 @@ if uploaded_sound is not None:
                 placeholder11=st.empty()
                 placeholder12=st.empty()
                 placeholder13=st.image('images/species.gif')
+                placeholder14=st.empty()
+
 
             with col2:
                 placeholder21=st.empty()
@@ -316,16 +318,24 @@ if uploaded_sound is not None:
 
         with col1:
             placeholder11.image('images/gold.png', width=100)
-            placeholder12.info(f'**{class_proba[2][1]}%** - {df_species.iloc[class_proba[2][0]].common_name}')
+            placeholder12.info(f'**{class_proba[2][1]}%**  -  {df_species.iloc[class_proba[2][0]].common_name}')
             placeholder13.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
+            # if uploaded_sound.name == 'mystery_species.wav':
+            #     if st.button('Reveal the truth'):
+            #         placeholder14.image('images/chewbacca.png',width=300)
 
         with col2:
             placeholder21.image('images/silver.png', width=100)
-            placeholder22.info(f'**{class_proba[1][1]}%** - {df_species.iloc[class_proba[1][0]].common_name}')
+            placeholder22.info(f'**{class_proba[1][1]}%**  -  {df_species.iloc[class_proba[1][0]].common_name}')
             placeholder23.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
 
 
         with col3:
             placeholder31.image('images/bronze.png', width=100)
-            placeholder32.info(f'**{class_proba[0][1]}%** - {df_species.iloc[class_proba[0][0]].common_name}')
+            placeholder32.info(f'**{class_proba[0][1]}%**  -  {df_species.iloc[class_proba[0][0]].common_name}')
             placeholder33.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
+
+        if uploaded_sound.name == 'mystery_species.wav':
+            with st.expander('Reveal', expanded=False):
+                st.image('images/chewbacca.png',width=300)
+                # st.audio('sound/star-wars-cantina-song.mp3')
