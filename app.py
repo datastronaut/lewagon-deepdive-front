@@ -291,7 +291,7 @@ if uploaded_sound is not None:
     df_species=pd.read_csv('species_table.csv')
 
     # after 'Predict' button is clicked
-    if st.button('Predict'):
+    if st.button('Find the species'):
 
         with st.spinner('Prediction in progress...'):
             col1, col2, col3 = st.columns(3)
@@ -313,13 +313,13 @@ if uploaded_sound is not None:
             time.sleep(5)
 
             with col1:
-                placeholder1.info(f'{df_species.iloc[class_proba[2][0]].common_name} with a confidence of {class_proba[2][1]} %.')
                 placeholder2.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
+                placeholder1.info(f'{df_species.iloc[class_proba[2][0]].common_name} with a confidence of {class_proba[2][1]} %.')
 
             with col2:
-                placeholder3.info(f'{df_species.iloc[class_proba[1][0]].common_name} with a confidence of {class_proba[1][1]} %.')
                 placeholder4.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
+                placeholder3.info(f'{df_species.iloc[class_proba[1][0]].common_name} with a confidence of {class_proba[1][1]} %.')
 
             with col3:
-                placeholder5.info(f'{df_species.iloc[class_proba[0][0]].common_name} with a confidence of {class_proba[0][1]} %.')
                 placeholder6.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
+                placeholder5.info(f'{df_species.iloc[class_proba[0][0]].common_name} with a confidence of {class_proba[0][1]} %.')
