@@ -30,4 +30,6 @@ def predict_class(audio_data, model):
     proba = [round(p*100,2) for p in pred[0][ind]]
     print('proba = ',proba)
 
-    return {key: value for key, value in zip(ind, proba)}
+    my_dict = {key: value for key, value in zip(ind, proba)}
+
+    return dict(sorted(my_dict.items(), key=lambda item: item[1]))
