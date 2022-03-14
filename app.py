@@ -311,7 +311,7 @@ if uploaded_sound is not None:
 
     # load model
     model = joblib.load('model.joblib')
-    df_species=pd.read_csv('species_table.csv')
+    df_species=pd.read_csv('species/species_table.csv')
 
     # button for prediction
     if st.button('Find the species'):
@@ -343,17 +343,17 @@ if uploaded_sound is not None:
         with col1:
             placeholder11.image('images/gold.png', width=100)
             placeholder12.info(f'**{class_proba[2][1]}%**  -  {df_species.iloc[class_proba[2][0]].common_name}')
-            placeholder13.image('images_species/'+df_species.iloc[class_proba[2][0]].image_name)
+            placeholder13.image('species/'+df_species.iloc[class_proba[2][0]].image_name)
 
         with col2:
             placeholder21.image('images/silver.png', width=100)
             placeholder22.info(f'**{class_proba[1][1]}%**  -  {df_species.iloc[class_proba[1][0]].common_name}')
-            placeholder23.image('images_species/'+df_species.iloc[class_proba[1][0]].image_name)
+            placeholder23.image('species/'+df_species.iloc[class_proba[1][0]].image_name)
 
         with col3:
             placeholder31.image('images/bronze.png', width=100)
             placeholder32.info(f'**{class_proba[0][1]}%**  -  {df_species.iloc[class_proba[0][0]].common_name}')
-            placeholder33.image('images_species/'+df_species.iloc[class_proba[0][0]].image_name)
+            placeholder33.image('species/'+df_species.iloc[class_proba[0][0]].image_name)
 
         # easter egg
         if 'mystery' in uploaded_sound.name:
