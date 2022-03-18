@@ -37,16 +37,16 @@ To address both problems, we agreed on the following preprocessing workflow:
 - Check class balance in terms of duration (through a barplot)  
 
 1. For over-represented classes :  
-  1. **samples >= 5s:** slice them into 5s consecutive slices (+ pad the last one randomly if >= 3s)  
-  2. **samples < 5s:** pad randomly  
+  - **samples >= 5s:** slice them into 5s consecutive slices (+ pad the last one randomly if >= 3s)  
+  - **samples < 5s:** pad randomly  
 2. For under-represented classes :  
-  3. **samples >= 5s:** slice them into 5s consecutive slices 3 times at different intervals, for each new signal generated, apply White Noise and Random Gain, thus generating 2 additional signals  
-  4. **samples < 5s:** pad randomly per sample  
+  - **samples >= 5s:** slice them into 5s consecutive slices 3 times at different intervals, for each new signal generated, apply White Noise and Random Gain, thus generating 2 additional signals  
+  - **samples < 5s:** pad randomly per sample  
 3. Check class balance again and adapt preprocessing if needed  
-  - Val and Test set:  
-    - **samples >= 5s:** cut them in 5 sec consecutive slices (+ pad the last one if > 3s)  
-    - **samples < 5s:** pad randomly  
-- Convert to mel spectrograms (i.e. numpy arrays)  
+4. Val and Test set:  
+  - **samples >= 5s:** cut them in 5 sec consecutive slices (+ pad the last one if > 3s)  
+  - **samples < 5s:** pad randomly  
+5. Convert to mel spectrograms (i.e. numpy arrays)  
   
 ### CNN architecture  
   
