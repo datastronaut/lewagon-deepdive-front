@@ -17,7 +17,7 @@ All the data used to train our model has been downloaded from the [Watkins Marin
 We have used the sounds available in the “Best of cuts” section of the site (around 1700 recordings).  
 We intended to work on the “all cuts” section (around 16000 recordings) but suffered RAM issues that we couldn’t solve in the allowed two weeks.  
   
-## Model training workflow  
+## Workflow  
   
 ### Data selection  
 From the raw dataset, we selected:  
@@ -54,6 +54,10 @@ Step 3: **Validation** and **Test** set:
 Step 4: Convert all audio signals to mel spectrograms (i.e. numpy arrays)
 
 *Note: the audio signals must be converted to mel spectrograms as CNN cannot process audio signals as such.*  
+
+### Model training
+
+CNN architecture and training history can be found in /working_environment/03_model_training/notebooks and /models
 
 ## Repositories  
 **front-end repo:** [ChristianDesCodes/lewagon-deepdive-front](https://github.com/ChristianDesCodes/lewagon-deepdive-front)  
