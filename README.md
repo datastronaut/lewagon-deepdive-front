@@ -33,7 +33,7 @@ Beforehand, we observed 2 main ‘issues’:
 
 To address both problems, we agreed on the following preprocessing workflow:  
 
-**Target duration**: duration of all audio samples that will be processed by our model, we deemed that **5 seconds** was a sufficient duration to observe and hear significant patterns. 
+**Target duration**: duration of all audio signals that will be processed by our model, we deemed that **5 seconds** was a sufficient duration to observe and hear significant patterns. 
 
 Step 1: **Train** - **Validation** - **Test** split on the dataset, as we will perform some Data Augmentation solely on the Train set.  
 
@@ -47,11 +47,11 @@ Step 2: **Train** set:
   - **samples < 5s:** pad randomly per sample  
 - Check class balance again and adapt preprocessing if needed  
 
-Step3: **Validation** and **Test** set:  
+Step 3: **Validation** and **Test** set:  
   - **samples >= 5s:** slice them into 5s consecutive slices (+ pad the last one randomly if >= 3s)  
   - **samples < 5s:** pad randomly  
   
-4. Convert all audio signals to mel spectrograms (i.e. numpy arrays)
+Step 4: Convert all audio signals to mel spectrograms (i.e. numpy arrays)
 
 *Note: the audio signals must be converted to mel spectrograms as CNN cannot process audio signals as such but are very competent on image analysis.*  
   
