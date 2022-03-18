@@ -47,10 +47,10 @@ st.sidebar.markdown("""
         This app is our final project at [Le Wagon](https://www.lewagon.com/).<br>
         We have trained our model thanks to the amazing work of William Watkins \
         and the thousands of recordings available on the<br>\
-        [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)
+        [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)<br>
+        Our Demo Day presentation (at 1:07:25):
         """,unsafe_allow_html=True)
 st.sidebar.video('https://youtu.be/vwwDGtuFbSQ?t=4045')
-st.sidebar.caption('Our Demo Day presentation (starts at 1:07:25)')
 st.sidebar.markdown("""
         Github repositories:
         [Front-end](https://github.com/ChristianDesCodes/lewagon-deepdive-front) /
