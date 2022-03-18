@@ -302,11 +302,12 @@ if uploaded_sound is not None:
                     <source src="data:audio/wav;base64,{sound_url}" type="audio/wav">
                 </audio>
             </div>
-            &copy; <a href="https://github.com/mike-brady/Spectrogram-Player">Mike Brady</a></span>
         """
 
         # display player on the app
         components.html(my_html,height=400)
+        st.caption('Spectrogram player developped by [Mike Brady](https://github.com/mike-brady/Spectrogram-Player)')
+
 
 
     # load model
