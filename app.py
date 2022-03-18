@@ -48,6 +48,7 @@ st.sidebar.markdown("""
         We have trained our model thanks to the amazing work of William Watkins \
         and the thousands of recordings available on the<br>\
         [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)<br>
+        <br>
         Our Demo Day presentation (at 1:07:25):
         """,unsafe_allow_html=True)
 st.sidebar.video('https://youtu.be/vwwDGtuFbSQ?t=4045')
