@@ -42,19 +42,21 @@ st.sidebar.markdown("""
         [Timothée Filhol](https://www.linkedin.com/in/timothee-filhol/)<br>
         [Christian Lajouanie](https://www.linkedin.com/in/christianlajouanie/)
         """, unsafe_allow_html=True)
-st.sidebar.image('images/qrcode.png', width=200)
+st.sidebar.image('images/qrcode.png', width=100)
 st.sidebar.markdown("""
-        This app is the result of our two week final project at [Le Wagon Data Science Bootcamp](https://www.lewagon.com/).
-        We have been able to train our model thanks to the amazing work of William Watkins \
-        and the thousands of classified recordings available on the<br>\
+        This app is our final project at [Le Wagon](https://www.lewagon.com/).<br>
+        We have trained our model thanks to the amazing work of William Watkins \
+        and the thousands of recordings available on the<br>\
         [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)
-        <br>
-        <br>
-        <br>
+        """,unsafe_allow_html=True)
+st.sidebar.video('https://youtu.be/vwwDGtuFbSQ?t=4045')
+st.sidebar.caption('Our Demo Day presentation (starts at 1:07:25)')
+st.sidebar.markdown("""
         Github repositories:
         [Front-end](https://github.com/ChristianDesCodes/lewagon-deepdive-front) /
         [Back-end](https://github.com/ChristianDesCodes/lewagon-deepdive)
-        """,unsafe_allow_html=True)
+                    """)
+
 
 # main title
 st.image('images/LeWagonDeepDiveLogo.png', width=100)
