@@ -53,15 +53,7 @@ Step 3: **Validation** and **Test** set:
   
 Step 4: Convert all audio signals to mel spectrograms (i.e. numpy arrays)
 
-*Note: the audio signals must be converted to mel spectrograms as CNN cannot process audio signals as such but are very competent on image analysis.*  
-  
-### CNN architecture  
- 
- 
- 
-## To be improved  
-We should have worked with the whole dataset in the first place to optimize our model’s learning  
-
+*Note: the audio signals must be converted to mel spectrograms as CNN cannot process audio signals as such.*  
 
 ## Repositories  
 **front-end repo:** [ChristianDesCodes/lewagon-deepdive-front](https://github.com/ChristianDesCodes/lewagon-deepdive-front)  
