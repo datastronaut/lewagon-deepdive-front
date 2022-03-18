@@ -9,13 +9,13 @@ It has been developed in two weeks by three beginners in Python and Deep Learnin
 
 ## Objective  
 Goal of the project: build a classification deep learning model.  
-**Input:** sound recording of an unknown marine mammal song (.wav format).  
+**Input:** sound recording of an unknown marine mammal song (.wav format).   
 **Output:** ranking of corresponding marine mammal species from most to least probable.  
 
 ## Source Data  
 All the data used to train our model has been downloaded from the [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds).  
 We have used the sounds available in the “Best of cuts” section of the site (around 1700 recordings).  
-We intended to work on the “all cuts” section (around 16000 recordings) but suffered memory issues that we couldn’t solve in the allowed two weeks.  
+We intended to work on the “all cuts” section (around 16000 recordings) but suffered RAM issues that we couldn’t solve in the allowed two weeks.  
   
 ## Model training workflow  
   
@@ -48,10 +48,12 @@ Step 2: **Train** set:
 - Check class balance again and adapt preprocessing if needed  
 
 Step3: **Validation** and **Test** set:  
-  - **samples >= 5s:** cut them in 5 sec consecutive slices (+ pad the last one if > 3s)  
+  - **samples >= 5s:** slice them into 5s consecutive slices (+ pad the last one randomly if >= 3s)  
   - **samples < 5s:** pad randomly  
   
-4. Convert to mel spectrograms (i.e. numpy arrays)  
+4. Convert all audio signals to mel spectrograms (i.e. numpy arrays)
+
+*Note: the audio signals must be converted to mel spectrograms as CNN cannot process audio signals as such but are very competent on image analysis.*  
   
 ### CNN architecture  
  
