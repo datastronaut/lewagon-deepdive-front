@@ -44,12 +44,17 @@ st.sidebar.markdown("""
         """, unsafe_allow_html=True)
 st.sidebar.image('images/qrcode.png', width=200)
 st.sidebar.markdown("""
-        This project has been possible thanks to the amazing work of William Watkins \
-        and the thousands of recordings available on the \
+        This app is the result of our two week final project at [Le Wagon Data Science Bootcamp](https://www.lewagon.com/).
+        We have been able to train our model thanks to the amazing work of William Watkins \
+        and the thousands of classified recordings available on the<br>\
         [Watkins Marine Mammal Sound Database](https://cis.whoi.edu/science/B/whalesounds/index.cfm)
-
-        [www.lewagon.com](https://www.lewagon.com/)
-        """)
+        <br>
+        <br>
+        <br>
+        Github repositories:
+        [Front-end](https://github.com/ChristianDesCodes/lewagon-deepdive-front) /
+        [Back-end](https://github.com/ChristianDesCodes/lewagon-deepdive)
+        """,unsafe_allow_html=True)
 
 # main title
 st.image('images/LeWagonDeepDiveLogo.png', width=100)
