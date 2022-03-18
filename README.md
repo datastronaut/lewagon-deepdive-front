@@ -30,26 +30,33 @@ The generated dataset amounted to approximately 900 audio samples.
 Beforehand, we observed 2 main ‘issues’:  
 1. The species in our selected dataset were extremely unbalanced  
 2. The audio samples were of different durations and would thus result to spectrograms of different lengths, which would be impossible for our model to process  
-To address both problems, we agreed on the following preprocessing workflow:  
-**Target duration**: duration of all audio samples that will be processed by our model, we deemed that **5 seconds** was a sufficient duration to observe and hear significant patterns.  
-- Train - Validation - Test split on the dataset, as we will perform some Data Augmentation solely on the Train set.  
-- Train set:  
-- Check class balance in terms of duration (through a barplot)  
 
-1. For over-represented classes :  
+To address both problems, we agreed on the following preprocessing workflow:  
+
+**Target duration**: duration of all audio samples that will be processed by our model, we deemed that **5 seconds** was a sufficient duration to observe and hear significant patterns. 
+
+Step 1: **Train** - **Validation** - **Test** split on the dataset, as we will perform some Data Augmentation solely on the Train set.  
+
+Step 2: **Train** set:
+- Check class balance in terms of duration (through a barplot)  
+- For over-represented classes :  
   - **samples >= 5s:** slice them into 5s consecutive slices (+ pad the last one randomly if >= 3s)  
   - **samples < 5s:** pad randomly  
-2. For under-represented classes :  
+- For under-represented classes :  
   - **samples >= 5s:** slice them into 5s consecutive slices 3 times at different intervals, for each new signal generated, apply White Noise and Random Gain, thus generating 2 additional signals  
   - **samples < 5s:** pad randomly per sample  
-3. Check class balance again and adapt preprocessing if needed  
-4. Val and Test set:  
+- Check class balance again and adapt preprocessing if needed  
+
+Step3: **Validation** and **Test** set:  
   - **samples >= 5s:** cut them in 5 sec consecutive slices (+ pad the last one if > 3s)  
   - **samples < 5s:** pad randomly  
-5. Convert to mel spectrograms (i.e. numpy arrays)  
+  
+4. Convert to mel spectrograms (i.e. numpy arrays)  
   
 ### CNN architecture  
-  
+ 
+ 
+ 
 ## To be improved  
 We should have worked with the whole dataset in the first place to optimize our model’s learning  
 
