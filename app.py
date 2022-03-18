@@ -305,7 +305,7 @@ if uploaded_sound is not None:
         """
 
         # display player on the app
-        components.html(my_html,height=400)
+        components.html(my_html,height=370)
         st.caption('Spectrogram player developped by [Mike Brady](https://github.com/mike-brady/Spectrogram-Player)')
 
 
