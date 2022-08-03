@@ -54,8 +54,8 @@ st.sidebar.markdown("""
 st.sidebar.video('https://youtu.be/vwwDGtuFbSQ?t=4045')
 st.sidebar.markdown("""
         Github repositories:
-        [Front-end](https://github.com/ChristianDesCodes/lewagon-deepdive-front) /
-        [Back-end](https://github.com/ChristianDesCodes/lewagon-deepdive)
+        [Front-end](https://github.com/ClearButton/lewagon-deepdive-front) /
+        [Back-end](https://github.com/ClearButton/lewagon-deepdive)
                     """)
 
 
