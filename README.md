@@ -5,7 +5,7 @@ Final project of [Le Wagon](https://www.lewagon.com/) Data Science Bootcamp - ba
 It has been developed in two weeks by three beginners in Python and Deep Learning
 - [Victoria Metzger](https://github.com/VictoriaMetzger)
 - [Timothée Filhol](https://github.com/timfilhol96)
-- [Christian Lajouanie](https://github.com/ChristianDesCodes)
+- [Christian Lajouanie](https://github.com/ClearButton)
 
 ## Objective
 Goal of the project: build a classification deep learning model.
