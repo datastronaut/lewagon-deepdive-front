@@ -61,6 +61,6 @@ Step 4: Convert all audio signals to mel spectrograms (i.e. numpy arrays)
 CNN architecture and training history can be found in /03_model_training/notebooks and /models
 
 ## Repositories
-- **front-end repo:** [ChristianDesCodes/lewagon-deepdive-front](https://github.com/ChristianDesCodes/lewagon-deepdive-front)
+- **front-end repo:** [ClearButton/lewagon-deepdive-front](https://github.com/ClearButton/lewagon-deepdive-front)
 - **website:** [DeepDiveWebsite](https://share.streamlit.io/christiandescodes/lewagon-deepdive-front/app.py)
-- **back-end repo:** [ChristianDesCodes/lewagon-deepdive](https://github.com/ChristianDesCodes/lewagon-deepdive)
+- **back-end repo:** [ClearButton/lewagon-deepdive](https://github.com/ClearButton/lewagon-deepdive)
