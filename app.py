@@ -42,7 +42,7 @@ st.sidebar.markdown("""
         [Timothée Filhol](https://www.linkedin.com/in/timothee-filhol/)<br>
         [Christian Lajouanie](https://www.linkedin.com/in/christianlajouanie/)
         """, unsafe_allow_html=True)
-st.sidebar.image('images/qrcode.png', width=100)
+// st.sidebar.image('images/qrcode.png', width=100)
 st.sidebar.markdown("""
         This app is our final project at [Le Wagon](https://www.lewagon.com/).<br>
         We have trained our model thanks to the amazing work of William Watkins \
